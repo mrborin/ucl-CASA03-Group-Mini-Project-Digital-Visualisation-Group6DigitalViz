@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+
+<!--https://www.gov.uk/government/statistical-data-sets/international-domestic-energy-prices-->
+<!--https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1022041/table_551.xlsx-->
+<!--https://edupala.com/introduction-to-dimple-js/-->
+<!--https://data.imf.org/?sk=471DDDF8-D8A7-499A-81BA-5B332C01F8B9-->
+<!--https://ourworldindata.org/explorers/energy?facet=none&country=USA~GBR~CHN~OWID_WRL~IND~BRA~ZAF&Total+or+Breakdown=Total&Energy+or+Electricity=Primary+energy&Metric=Annual+consumption -->
+<!--https://data.imf.org/MyProfile?tb=Downloads-->
+
+<!--Final data-->
+<!--https://govdata360.worldbank.org/indicators/h6779690b?country=BRA&indicator=42573&viz=line_chart&years=2014,2019-->
+<!-- Imports D3 library, annotations, Lato font, and chromatic colour scales -->
+<script charset="utf-8" src="https://d3js.org/d3.v4.min.js"></script>
+<script src="http://d3js.org/d3.v4.js"></script>
+<script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
+<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+<!--Policy slider library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800'>
+
+<!-- Policytimeline library -->
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Imports Apache library -->
+<script src="echarts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.3.1-rc.1/echarts.min.js"></script>
+<script src="http://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+
+<!-- Imports Dimple library -->
+<script charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/dimple/2.3.0/dimple.latest.min.js"></script>
+<link rel="stylesheet" type="text/css" href="fullpage.css" />
+
+<script type="text/javascript" src="fullpage.js"></script>
+
+<link rel="stylesheet" type="text/css" href="examples.css" />
+
+<head>
+    <title>Energy and living costs, a timeline</title>
+
+
+</head>
+
+
+<body>
+    <ul id="menu">
+        <li data-menuanchor="firstPage" class="active"><a href="#firstPage">Home</a></li>
+        <li data-menuanchor="secondPage"><a href="#secondPage">Energy Cost</a></li>
+
+        <li data-menuanchor="fourthPage"><a href="#fourthPage">Energy Mix</a></li>
+        <li data-menuanchor="fifthPage"><a href="#fifthPage">Imports</a></li>
+
+
+        <li data-menuanchor="eighthPage"><a href="#eighthPage">Energy per person </a></li>
+
+        <li data-menuanchor="12thPage"><a href="#sunny1">Energy and Growth</a></li>
+
+        <li data-menuanchor="13thPage"><a href="#13thPage">Energy and Policy</a></li>
+
+
+
+
+    </ul>
+
+    <div id="fullpage">
+        <div class="section">
+            <h1>Why are energy prices rising?</h1>
+        </div>
+        <div class="section">
+            <div class="grid-container" style="display: grid; grid-template-columns: auto auto;padding: 3%;">
+                <div class="grid-item">
+                    <text style="font: 'Lato';font-size: 14px;font-weight: bold;">
+                        Cost of getting electricity (cumulative measure of total procedural, temporal, generation and
+                        import costs associated with getting energy delivered)
+                    </text>
+                    <div id="barchartPrices"></div>
+                    <text style="font: 'Lato';font-size: 14px;font-weight: bold;">
+                        The World Bank's getting electricity indicators measure the procedures, time and cost
+                        required for a
+                        business to obtain a permanent electricity connection for a newly constructed warehouse.
+                    </text>
+                    <a href="https://subnational.doingbusiness.org/en/data/exploretopics/getting-electricity/score"
+                        target="_blank" style="font-style: italic; font-size: small;"> <text
+                            style="font: 'Lato';font-size: 14px;font-weight: bold;">(Link)</text> </a>
+                    </text>
+                </div>
+                <div class="grid-item">
+                    <div id="ObservationsPrices">
+                        <text>
+                            The cost of getting electicity is highlighted for a select group of countries, and is
+                            indicative of the cost associated
+                            with ensuring permanent energy supply for a new business in each nation states.
+                            <br>
+                            <br>
+                            This cost has traditionally been substantially higher in China relative to both
+                            other developed nation states such as the United States developing
+                            countries such as India.
+                            <br>
+                            <br>
+                            After China, the cost of getting electricity is the highest in the United Kingdom (relative
+                            to the other countries in this analysis), however, this cost has reduced substantially from 2014 onwards.
+                            <br>
+                            <br>
+                        </text>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="grid-container" style="display: grid; grid-template-columns: auto auto;padding: 3%;">
+                <div class="grid-item">
+                    <text style="font: 'Lato';font-size: 14px;font-weight: bold;">
+                        Inflation, consumer prices (annual %)
+                    </text>
+                    <div id="linechartInflation"></div>
+                    <text style="font: 'Lato';font-size: 14px;font-weight: bold;">
+                        The World Bank's inflation indicator measures
+                        the annual percentage change in the cost to the average consumer of
+                        acquiring a basket of goods and services that may be fixed or changed at specified intervals,
+                        such as yearly. </text>
+                    <a href="https://databank.worldbank.org/metadataglossary/gender-statistics/series/FP.CPI.TOTL.ZG#:~:text=Metadata%20Glossary&text=Inflation%20as%20measured%20by%20the,specified%20intervals%2C%20such%20as%20yearly."
+                        target="_blank" style="font-style: italic; font-size: small;"> <text
+                            style="font: 'Lato';font-size: 14px;font-weight: bold;">(Link)</text> </a>
+                </div>
+                <div class="grid-item">
+                    <div id="ObservationsInflation">
+                        <text>
+                            Inflation is a cost of living indicator as it can be used
+                            to assess the impact of increases on the affordability of energy.
+                            <br>
+                            <br>
+                            Certain developed economies, such as the United States and China witnessed deflation or a
+                            decrease
+                            in year on year prices in 2009 (in the aftermath of the 2008 financial crisis), this can
+                            largely be attributed to
+                            associated economic slowdowns and contractions.
+                            <br>
+                            <br>
+                            Inflation rates have traditionally been substantially higher for
+                            developing economies such as India, relative to more developed
+                            nation states such as the United States and the United Kingdom, though India's inflation
+                            rate is now more in line with that of other countries.
+                            <br>
+                        </text>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div id="energy_mix"></div>
+            <text
+                style="text-align:left; font: 'Lato';font-size: 16px; position:absolute; left: 72%; right:1%; top:35%;">
+                In 1965, the energy mix was heavily dominated by crude oil and coal consumption.
+                <br> <br>
+                The gradual phasing out of coal consumption has led to increasing reliance on natural gas.
+                <br> <br>
+                However, investment in renewable energy has helped diversify the energy mix in recent years and led to the rapid growth of wind energy consumption.
+                <br> <br>
+                Notice the funnelling effect from 2005-2020. This suggests energy consumption has gradually reduced.
+            </text>
+        </div>
+        <div class="section">
+            <div id="uk_import_dependency"></div>
+            <text
+                style="text-align:left; font: 'Lato';font-size: 16px; position:absolute; left:72%; right:1%; top:30%;">
+                How self-reliant is the UK when it comes to energy?
+                <br> <br>
+                Year on year variation of import contributions suggests that imports play an important part in dealing with sudden changes in demand.
+                <br> <br>
+                Imports reliance increased at the turn of the century, but through the growth in wind production has begun to decrease again.
+                <br> <br>
+                Currently, almost 30% of UK energy consumption is imported.
+                <br> <br>
+                With such a significant part of the energy mix formed of imports, the UK is affected by international politics, prices and shortages.
+            </text>
+        </div>
+        <div class="section">
+            <div id="int_import_dependency"></div>
+            <text
+                style="text-align:left; font: 'Lato';font-size: 16px; position:absolute; left:72%; right:1%; top:30%;">
+                How does the UK’s import dependency compare to other countries?
+                <br> <br>
+                The UK is in a unique position, transitioning from a major exporter to importer.
+                <br> <br>
+                Other countries have experienced slower change.
+                <br> <br>
+                The USA has bucked the trend and become a net exporter.
+                <br> <br>
+                Notice Germany’s outstandingly high reliance on imported energy.
+                <br> <br>
+                The UK’s reliance on imported energy is comparatively high against other case study countries, but where does this imported energy come from?
+
+            </text>
+        </div>
+        <div class="section">
+            <input type="range" min="2001" max="2020" step="1" value="2020">
+            <div id="import-source"></div>
+            <text
+                style="text-align:left; font:'Lato'; font-size: 16px; position:absolute; left:41.5%; top:64.5%;font-weight: bold;">
+                2001
+            </text>
+            <text
+                style="text-align:left; font: 'Lato';font-size: 16px; position:absolute; left:61.5%; top:64.5%;font-weight: bold;">
+                2020
+            </text>
+            <text
+                style="text-align:middle; font: 'Lato';font-size: 16px; position:absolute; left:250px; right:250px; top:70%;">
+                What energy types is the UK importing, and where is it coming from?
+                <br> <br>
+                Since 2001, imported energy types have diversified largely through the growth of dominance of oil
+                imports and phasing out of coal.
+                <br> <br>
+                The two main imported energy types of Oil and Gas are dominated by supplies from Norway, demonstrating a
+                significant reliance. In 2001, Norway supplied around 75% of all oil and gas imports to the UK.
+                <br> <br>
+                The diversification of suppliers in recent years is largely due to the U.S.A. becoming a net exporter
+                and supplying the UK with about 25% of oil consumption and 11% of gas consumption.
+            </text>
+        </div>
+
+        <!--Bolin from here-->
+        <div class="section">
+            <div id="main3"></div>
+            <text
+                style="text-align:left; font: 'Lato';font-size: 16px; position:absolute; left:80%; right:1%; top:15%;">
+                How do countries compare when we look at energy consumption per person?
+                <br> <br>
+                This interactive chart shows per capita energy consumption. We see vast differences across the world.
+                <br> <br>
+                The largest energy consumers include Iceland, Norway, Canada, the United States, and wealthy nations in
+                the Middle East such as Oman, Saudi Arabia and Qatar. The average person in these countries consumes as
+                much as 100 times more than the average person in some of the poorest countries.
+                <br> <br>
+                In fact, the true differences between the richest and poorest might be even greater. We do not have
+                high-quality data on energy consumption for many of the world’s poorest countries. This is because they
+                often use very little commercially-traded energy sources (such as coal, oil, gas, or grid electricity)
+                and instead rely on traditional biomass – crop residues, wood and other organic matter that is difficult
+                to quantify. This means we often lack good data on energy consumption for the world’s poorest.
+            </text>
+
+
+        </div>
+        <div class="section">
+            <div id="main4"></div>
+            <text
+                style="text-align:left; font: 'Lato';font-size: 16px; position:absolute; left: 80%; right:1%; top:15%;">
+                The U.S. average energy use per person remained steady overall during the 1990-2020 period, but there
+                were two more significant decreases in 2004-2012 and after 2018, respectively, and it was found that
+                both decreases were due to industrial upgrading and expanding the use of new energy sources.
+                <br> <br>
+                India as a whole shows a smooth upward trend, also with the smooth development of the country.
+                <br> <br>
+                The UK has two decreasing trends overall after 2006, similar to the United States, respectively, after
+                2006-2011 and 2018.
+                <br> <br>
+                China has shown a rapid rise in the overall trend during the 30 years, especially after 2002, and the
+                initial exploration may be due to the rapid development of manufacturing after joining the WTO.
+                <br> <br>
+                Overall, average energy use per person is much higher in developed countries than in developing
+                countries, but while it is declining in developed countries, it is rising in developing countries.
+            </text>
+
+        </div>
+        <!--Bolin to here-->
+
+        <!--Sunny from here -->
+        <div class="section">
+            <div id="viz_1"></div>
+            <text>
+                Decreasing Energy Per GDP indicates decoupling from economic growth. <br>
+                Germany, the UK, and the US have experienced decoupling. <br>
+                India's levels are lower likely due to a different extent of industrialisation.<br>
+                China has experienced the most variation, the 2005 peak likely due to joining the World Trade Organisation.  <br>
+            </text>
+        </div>
+        <div class="section">
+            <div id="viz_2"></div>
+            <text>
+                Increasing use of renewable energy is one driver of decoupling energy use and economic growth. <br>
+                Many countries see increasing levels, while the US and India have lower ratios in recent years. <br> <br>
+            </text>
+        </div>
+        <div class="section">
+            <h1 style="font-size: 60px;">Compare by Year</h1>
+            <div id="slider"></div>
+            <div id="viz_t"></div>
+        </div>
+        <!-- Sunny to here-->
+
+        <!-- Elika from here-->
+        <div class="section">
+            <div class="header">
+                <h1 style="font-size: 60px;">Energy and Policy</h1>
+                <p style="font-size:24px;">This section looks at the trends of policy decisions taken by governments
+                    across the world</p>
+                <p style="font-size: 18px;">The information is sourced from <a
+                        href="https://www.energypolicytracker.org">The Energy Policy Tracker</a> that compiles
+                    publicly available information on public money commitments for diverse energy types as well as other
+                    policies that support energy production and consumption.
+                </p>
+                <p style="font-size: 14px;padding-bottom: 130px;">To note: the tracker only displays initial
+                    investment to new policy.</p>
+            </div>
+        </div>
+
+
+        <div class="section">
+            <div class="header">
+                <h1 style="font-size: 60px;">Charting the World's rhetoric towards Energy</h1>
+                <p style="font-size:24px;">This section looks at the trends of policy decisions taken by G20 governments
+                </p>
+                <p style="font-size: 18px;">Capturing essential policies with news reels to follow</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <iframe src="Elika_policytimeline.html" width="100%" height="95%" style="border:none;"></iframe>
+        </div>
+
+        <div class="section">
+            <iframe src="Elika_investmentsector.html" width="100%" height="100%" style="border:none;"></iframe>
+        </div>
+
+        <div class="section">
+            <iframe src="Elika_investmentfueltype.html" width="100%" height="100%" style="border:none;"></iframe>
+        </div>
+
+        <div class="section">
+            <div class="header">
+                <h3 style="font-size: 30px; line-height: 1.25em;">Key Policies</h3>
+                <p style="font-size: 24px; line-height: 1.25em;">in specific countries</p>
+                <p style="font-size: 16px; line-height: 1.25em;">This policy overview captures a number of policies
+                    in the countries (Germany, China, India, UK and the US) as they push towards an equitable/
+                    non-equitable energy outlook, committing to important legislations that attempt to adjust the past
+                    narrative
+                </p>
+            </div>
+        </div>
+        <div class="section">
+            <iframe src="Elika_keypolicyswipper.html" width="100%" height="95%" style="border:none;"></iframe>
+        </div>
+        <div class="section">
+
+            <div class="header">
+                <h3 style="font-size: 30px; padding-top: 20px;">End Note</h3>
+                <p style="font-size: 16px;">Key policy decisions in countries like Germany and UK support green energy
+                    transitions- but the cost ultimately rises for the end consumer and not producer.
+                    US on the other hand has seldom recorded sustainable energy related policies in the last few years.
+                    The policies in countries like China, and India show hesitant green commitments- especially after
+                    the current political rift. The low carbon footprint transitions energy towards electricity and
+                    subsequently questions where it is coming from? What is its source and how is it distributed?
+                    Paramount being, who is going to pay for it?
+                </p>
+                <p style="font-size: 16px; padding-bottom: 250px;">Despite the perplexing investment trends and policy
+                    engagements- the investments voiced in early 2022 after the pandemic as well as during the Ukraine
+                    war pushes towards production and consumption through sustainable 'self-reliant' sources of energy
+                    which readjusts this situation for trends to emerge in the future.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Elika to here-->
+
+        <!--  *****  -->
+
+
+
+    </div>
+
+    <script src="Val_Energy_Mix.js"></script>
+    <script src="Val_UK_import_trends.js"></script>
+    <script src="Val_Int_import_dependency.js"></script>
+    <script src="Val_UK_import_sources.js"></script>
+    <script src="Ankur_page1.js"></script>
+    <script src="Ankur_page2.js"></script>
+    <script src="js-bolin/bolin-1-echarts530.min.js"></script>
+    <script src="js-bolin/bolin-1-jquery.min.js"></script>
+    <script src="js-bolin/bolin-1-linq.js"></script>
+    <script src="js-bolin/bolin-1-map.js"></script>
+    <script src="js-bolin/bolin-1-lodash.min.js"></script>
+    <script src="js-bolin/bolin-2-dayjs.min.js"></script>
+    <script src="js-bolin/bolin-2-ecStat.min.js"></script>
+    <script src="js-bolin/bolin-1-data.js"></script>
+    <script src="js-bolin/bolin-2-data.js"></script>
+    <script src="Sunny_page0.js"></script>
+    <script src="Sunny_page1.js"></script>
+    <script src="Sunny_page2.js"></script>
+    <script src="Sunny_page3.js"></script>
+    <script src="Sunny_paget.js"></script>
+
+
+    <script>
+        window.onload = function () {
+            createBarChart(energy_cost_data, "#barchartPrices");
+            createLineChart(inflation_data, "#linechartInflation");
+        };
+        new fullpage('#fullpage', {
+            //options here
+            sectionsColor: [
+                '#F1948A', '#f4f4f4', '#f4f4f4', '#f4f4f4', '#f4f4f4', '#f4f4f4', '#f4f4f4', '#f4f4f4', '#f4f4f4', 'white', 'white', 'white', 'white', 'white', ' ', 'white'
+            ],
+            anchors: [
+                'firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'fifthPage', 'sixthPage', 'seventhPage', 'eighthPage', 'ninthPage', 'sunny1', 'sunny2', 'sunny3', '13thPage', '14thPage', '15thPage', '16thPage', '', '17thPage'],
+            autoScrolling: true,
+            scrollHorizontally: true,
+            menu: '#menu',
+            lazyLoad: true
+        });
+    </script>
+
+
+</body>
+
+</html>

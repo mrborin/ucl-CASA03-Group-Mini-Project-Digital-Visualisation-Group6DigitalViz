@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>G20 Timeline</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+
+<style>
+body { margin: 0; padding: 0; overflow-x: hidden;
+    overflow-y: scroll !important; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+
+</head>
+
+<body>
+
+<style>
+#map {
+position: fixed;
+width: 60%;
+}
+#features {
+width: 40%;
+margin-left: 60%;
+font-family: 'Lato' !important; 
+overflow-y: scroll;
+background-color: white;
+color: black; 
+}
+section {
+padding: 25px 50px;  
+line-height: 25px;
+border-bottom: 1px solid black;
+opacity: 0.25;
+font-size: 14px; 
+}
+section.active {
+opacity: 1;
+}
+section:last-child {
+border-bottom: none;
+margin-bottom: 500px;
+}
+
+.features2 {
+width: 40%;
+margin-left: 60%; 
+color: white;
+overflow-y: scroll;
+background-color: rgb(20, 20, 20); 
+}
+
+.modal-content{  
+color: black;
+display: flex;
+background-color: #F8F9F9; 
+box-shadow: 100px;
+border-radius: 5px; 
+z-index: 999 !important;
+transition: opacity 250ms 700ms ease;
+}
+
+.btn-outline-dark {
+background-color: white;
+border-color: grey;
+border-radius: 0%; 
+color: black;
+box-shadow: 50px;
+width: 85%;
+text-align: left;
+}
+ 
+</style>
+ 
+<div id="map"></div>
+
+<div id="features">
+<section id="India" class="active">
+<h2>India</h2>
+<p>India will reach its non-fossil energy capacity to 500 GW by 2030 and will meet 50% of its energy requirements from renewable energy by 2030.</p>
+<p>By 2030, India will reduce the carbon intensity of its economy by less than 45% and reduce the total projected carbon emissions by one billion tonnes from now onwards till 2030.</p>
+<p>By 2070, India will achieve the Net-zero target</p>
+
+<div id="features2">
+ 
+    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#Modal1" style="font-size: 14px;">
+       Watch Here
+    </button>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="Modal1">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+    
+    <!-- Modal Header -->
+    <div class="modal-header">
+    <h4 class="modal-title">How India Plans To Achieve PM Modi’s Net Zero By 2070 Target & The Challenges Ahead of COP26</h4>
+    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+    
+    <!-- Modal body -->
+    <div class="modal-body">
+        <iframe width="1100px" height="500px" 
+            src="https://www.youtube.com/embed/cyHmRBogWhQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe> 
+        <p>Source <a href="https://www.youtube.com/c/CRUXnews">CRUX India</a></p>
+    </div>
+    
+    <!-- Modal footer -->
+    <div class="modal-footer">
+    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+    </div>
+</div>        
+</div>
+</div>
+</section>
+
+<section id="China">
+<h2>China</h2> 
+<p>At the UN General Assembly China announced that it would end overseas finance to coal fired power plants. This is a major announcement which has important repercussions for other  countries dependent on coal financing. </p>
+<p>Key energy/climate indicators by 2025 outlined by the Center's Plan included: 13.5% reduction in nation's energy intensity, 18% cut in CO2 emission intensity, the proportion of non-fossil energy to increase to about 20% of total energy consumption by 2025.</p>
+<p>By 2035, all new vehicles sold in China must be powered by new-energy, the Chinese authorities have said. Half of them must be electric, fuel cell, or plug-in hybrid, and the remaining 50%, hybrid vehicles.</p>
+
+<div id="features2">
+ 
+    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#Modal2" style="font-size: 14px;">
+       Watch Here
+    </button>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="Modal2">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+    
+    <!-- Modal Header -->
+    <div class="modal-header">
+    <h4 class="modal-title">China pledges to stop building new coal energy plants abroad</h4>
+    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+    
+    <!-- Modal body -->
+    <div class="modal-body">
+        <iframe width="1100px" height="500px" 
+            src="https://www.youtube.com/embed/ZqTnCLkJtMg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe> 
+        <p>Source <a href="https://www.youtube.com/c/BBCNews">BBC News</a></p>
+    </div>
+    
+    <!-- Modal footer -->
+    <div class="modal-footer">
+    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+    </div>
+</div>        
+</div>
+</div>
+</section>
+
+<section id="Japan">
+<h2>Japan</h2> 
+<p>To promote the effective use of sewerage resources and contribute to carbon neutrality, develop facilities to convert sewage sludge into energy, and developing facilities for wide-area and joint use to promote the consolidation of sewerage resources.</p>
+<p>In order to achieve carbon neutrality by 2050, the government will develop technologies to establish a production base for gas-fueled ships.</p>
+<p>Support the introduction of facilities and machinery such as biogas plants that utilize livestock waste in order to promote local production for local consumption of energy in order to realize a green society (carbon neutral).</p>
+
+<div id="features2">
+ 
+    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#Modal3" style="font-size: 14px;">
+       Watch Here
+    </button>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="Modal3">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+    
+    <!-- Modal Header -->
+    <div class="modal-header">
+    <h4 class="modal-title">Japan vows to become carbon neutral by 2050</h4>
+    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+    
+    <!-- Modal body -->
+    <div class="modal-body">
+        <iframe width="1100px" height="500px" 
+            src="https://www.youtube.com/embed/WHTAel7Qhrw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe> 
+        <p>Source <a href="https://www.youtube.com/user/channelnewsasia">CNA News</a></p>
+    </div>
+    
+    <!-- Modal footer -->
+    <div class="modal-footer">
+    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+    </div>
+</div>        
+</div>
+</div>
+</section>
+
+<section id="Korea">
+<h2>Korea</h2> 
+<p>Korean President pledged of the net-zero by 2050 during his administration speech for the 2021 budget at the National Assembly two days after Japan's announcement.</p>
+<p>Supports 100 innovative green businesses and establishes 5 base complexes for promising core areas (including a clean air business cluster, hydrothermal energy convergence cluster, and a electric vehicle spent-battery resource circulation cluster).</p>
+<p>Extends support for renewable energy deployment and the hydrogen economy.</p>
+
+<div id="features2">
+ 
+    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#Modal40" style="font-size: 14px;">
+       Watch Here
+    </button>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="Modal40">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+    
+    <!-- Modal Header -->
+    <div class="modal-header">
+    <h4 class="modal-title">S. Korean lawmakers push ahead with bill for net-zero carbon emissions by 2050</h4>
+    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+    
+    <!-- Modal body -->
+    <div class="modal-body">
+        <iframe width="1100px" height="500px" 
+            src="https://www.youtube.com/embed/QdutO5YLa14" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe> 
+        <p>Source <a href="https://www.youtube.com/c/ArirangCoKrArirangNEWS">Arirang News</a></p>
+    </div>
+    
+    <!-- Modal footer -->
+    <div class="modal-footer">
+    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+    </div>
+</div>        
+</div>
+</div>
+</section>
+
+<section id="Indonesia">
+<h2>Indonesia</h2> 
+<p>The country has set an overall target to have modern renewables (excluding traditional uses of bioenergy) provide 23% of total primary energy supply (TPES) by 2025, and 31% by 2050.</p>
+
+<div id="features2">
+ 
+    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#Modal5" style="font-size: 14px;">
+       Watch Here
+    </button>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="Modal5">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+    
+    <!-- Modal Header -->
+    <div class="modal-header">
+    <h4 class="modal-title">Indonesia's clean energy revolution</h4>
+    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+    
+    <!-- Modal body -->
+    <div class="modal-body">
+        <iframe width="1100px" height="500px" 
+            src="https://www.youtube.com/embed/7PXIof_Q-a0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe> 
+        <p>Source <a href="https://www.youtube.com/c/straitstimesonline">The Straits Times</a></p>
+    </div>
+    
+    <!-- Modal footer -->
+    <div class="modal-footer">
+    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+    </div>
+</div>        
+</div>
+</div>
+</section>
+
+<section id="Saudi-Arabia">
+<h2>Saudi-Arabia</h2> 
+<p>Saudi Arabia's Energy Minister announced the kingdom would seek to produce 50% of its electricity from renewables by 2030.</p>
+<p>Saudi Arabia had regulated - that is subsidized - electricity prices before the COVID19 crisis. The Energy Ministry affirmed the King's order of a further 30 per cent discount for April and May 2020 in the value of electricity bills for commercial and industial premises.</p>
+
+<div id="features2">
+ 
+    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#Modal6" style="font-size: 14px;">
+       Watch Here
+    </button>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="Modal6">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+    
+    <!-- Modal Header -->
+    <div class="modal-header">
+    <h4 class="modal-title">Top oil exporter Saudi Arabia targets net zero carbon emissions by 2060</h4>
+    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+    
+    <!-- Modal body -->
+    <div class="modal-body">
+        <iframe width="1100px" height="500px" 
+            src="https://www.youtube.com/embed/_sMMiP4uTPw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe> 
+        <p>Source <a href="https://www.youtube.com/c/WION">WION</a></p>
+    </div>
+    
+    <!-- Modal footer -->
+    <div class="modal-footer">
+    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+    </div>
+</div>        
+</div>
+</div>
+</section>
+
+<section id="Russia">
+<h2>Russia</h2> 
+<p>Action plan for implementation Energy Strategy of the Russian Federation for the period up to 2035.
+    The document provides for individual measures to improve the efficiency of fuel and energy complex technologies, stimulate the use of renewable energy sources (RES), and develop domestic technologies for low-carbon hydrogen production.
+</p>
+<p>Introduction of the reverse excise tax (tax deduction) on ethane and LPG depending on the volume of investment in new or modernize petrochemical facilities.
+    This policy was developed according to the order of the President adopted on 21 May 2020 based on the special meeting on the development of the Russian energy sector against the backdrop of oil price plunge and demand shock caused by the COVID19 crisis.
+</p>
+<p>Decree of the President of the Russian Federation on reducing greenhouse gas emissions.
+    The decree for the year implies emissions by 2030 to 70 percent of the 1990 level with the maximum possible absorptive capacity of forests, that is, minus 30 percent from 1990 to 2030.
+</p>
+<p>Russian government plan road map for the development of hydrogen energy in the Russian Federation until 2024.</p>
+
+<div id="features2">
+ 
+    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#Modal7" style="font-size: 14px;">
+       Watch Here
+    </button>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="Modal7">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+    
+    <!-- Modal Header -->
+    <div class="modal-header">
+    <h4 class="modal-title">COP26: The end of Russia's Siberian oil era still a long way off</h4>
+    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+    
+    <!-- Modal body -->
+    <div class="modal-body">
+        <iframe width="1100px" height="500px" 
+            src="https://www.youtube.com/embed/x4NxOzXDLYE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe> 
+        <p>Source <a href="https://www.youtube.com/c/SkyNews">SKY NEWS</a></p>
+    </div>
+    
+    <!-- Modal footer -->
+    <div class="modal-footer">
+    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+    </div>
+</div>        
+</div>
+</div>
+</section>
+
+<section id="Germany">
+<h2>Germany</h2> 
+<p>Tax on greenhouse gas emissions for fuels, heating and gas.</p>
+<p>Coal Phase-Out Act underlying Germany's coal phase out by 2038</p>
+<p>Regulatory measures: abolition of cap on fundable maximum capacity for solar; target for offshore wind power raised from 15 to 20 GW in 2030; regulation on minimum distances between wind turbines and nearest homes relaxed
+    To further promote the expansion of renewable energies, the cap on the funding of photovoltaics ("Solardeckel") at a capacity of 52 GW will be abolished immediately. The expansion target for offshore wind power will be raised from 15 to 20 GW in 2030.
+</p>
+<p>Modernization of buildings for energy efficiency (economic stimulus package)
+    Funding for the CO2 building renovation programme will be increased by one billion euros to 2.5 billion euros for 2020 and 2021. The federal government's funding programmes for the energy-efficient renovation of municipal buildings are also being increased.
+</p>
+<p>Introduction of a new vehicles tax based on their CO2 emissions
+    Starting from January 2021, new registered vehicles will be taxed according to the CO2 emissions per km (for vehicles with emissions above 95g CO2/km). Owners of cars with emissions over 195 grams/km will pay double the surcharge.
+</p>
+<p>Hydrogen foreign trade partnerships
+    Germany plans to build up hydrogen trade partnerships with countries in which hydrogen can be produced efficiently due to their geographical location.
+</p>
+<p>Reduction in electricity prices for consumers through a cut in the Renewable Energy Act levy/EEG-surcharge (part of the economic stimulus package)</p>
+
+<div id="features2">
+ 
+    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#Modal8" style="font-size: 14px;">
+       Watch Here
+    </button>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="Modal8">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+    
+    <!-- Modal Header -->
+    <div class="modal-header">
+    <h4 class="modal-title">German parties agree to phase out coal by 2030</h4>
+    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+    
+    <!-- Modal body -->
+    <div class="modal-body">
+        <iframe width="1100px" height="500px" 
+            src="https://www.youtube.com/embed/5SyoKjUfJyo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe> 
+        <p>Source <a href="https://www.youtube.com/c/WION">WION</a></p>
+    </div>
+    
+    <!-- Modal footer -->
+    <div class="modal-footer">
+    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+    </div>
+</div>        
+</div>
+</div>
+</section>
+
+<section id="France">
+<h2>France</h2> 
+<p>New regulation banning gas heating in new houses
+    The new environmental regulation (RE 2020) will ban gas heating for houses from summer 2021 in order to reduce emissions. In single-family homes, the maximum carbon emission threshold for heating will be 4kgCO2 / m2 / year.
+</p>
+<p>Support for green hydrogen as part of France's 2030 Hydrogen Strategy
+    This strategy which will run until 2030 will be focusing on: Funding of research projects for the development of hydrogen-based low carbon solutions for the maritime and aviation sectors.
+</p>
+<p>Financing of a 680km bike network across Paris and its surrounding municipalities</p>
+<p>Gas price freeze until 2022
+    In response to the increase in natural gas prices on the wholesale markets over the last few months, regulated tariffs on the sale of natural gas are frozen until 2022.
+</p>
+<div id="features2">
+ 
+    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#Modal9" style="font-size: 14px;">
+       Watch Here
+    </button>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="Modal9">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+    
+    <!-- Modal Header -->
+    <div class="modal-header">
+    <h4 class="modal-title">France energy inflation cap due to 'nuclear shield': Industry minister</h4>
+    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+    
+    <!-- Modal body -->
+    <div class="modal-body">
+        <iframe width="1100px" height="500px" 
+            src="https://www.youtube.com/embed/WTsGq-zzOxo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe> 
+        <p>Source <a href="https://www.youtube.com/c/CNBCInternationalTV">CNBC International TV</a></p>
+    </div>
+    
+    <!-- Modal footer -->
+    <div class="modal-footer">
+    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+    </div>
+</div>        
+</div>
+</div>
+</section>
+
+<section id="Italy">
+<h2>Italy</h2> 
+<p>Emergency measures to contain electricity and gas price increases (gas)
+    The "Law-decree 27th September 2021, n. 130" aims to contain the effects of price increases in the natural gas sector in the fourth quarter of 2021.
+</p>
+<p>Government incentive for energy efficiency and sustainable development in small towns
+    Allocation of resources in favour of the Italian municipalities for the realisation of projects relating to energy efficiency measures and sustainable territorial development. These grants, with a value of EUR 19,329.89 each, are available to all the municialities.
+</p>
+<p>Energy efficiency incentives (2022 Budget)
+    The National Fund for energy efficiency is boosted to 8 million euros per year, starting from 2022. The incentives include disbursement of loans, part of which are non-repayable. The incentive supports interventions aimed at guaranteeing the achievement.
+</p>
+
+<div id="features2">
+ 
+    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#Modal10" style="font-size: 14px;">
+       Watch Here
+    </button>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="Modal10">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+    
+    <!-- Modal Header -->
+    <div class="modal-header">
+    <h4 class="modal-title">Italy wants to reverse course from the country's previous stance on energy efficiency targets</h4>
+    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+    
+    <!-- Modal body -->
+    <div class="modal-body">
+        <iframe width="1100px" height="500px" 
+            src="https://www.youtube.com/embed/R6iWGec0yNM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe> 
+        <p>Source <a href="https://www.youtube.com/c/EurActiv">EURACTIV</a></p>
+    </div>
+    
+    <!-- Modal footer -->
+    <div class="modal-footer">
+    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+    </div>
+</div>        
+</div>
+</div>
+</section>
+
+<section id="Turkey">
+<h2>Turkey</h2>
+<p>Energy Performance Contracts in Public Sector
+    The "Law on Energy Performance Contracts in Public Sector" has been approved by the Parliament in 2018. This regulation outlines the principles and methodologies of the contracting process.
+</p>
+<p>Increased retail loans for housing, launched by the public banks, with no energy efficiency requirements.
+    During the COVID-19 times, easing on the housing credits is announced in the first stimulus package on March 17th. Public banks started to provide low interest housing loans since the beginning of June. 
+</p>
+<p>New feed-in tariff rates for Renewable Energy Support Scheme (YEKDEM)
+    The previous feed-in-tariffs were extended until the end of June, 2021, due to COVID-19. This new rates will be covering REN investments which are granted a renewable energy resource certificate between 1/07/2021 and 31/12/2025.
+</p>
+
+<div id="features2">
+ 
+    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#Modal11" style="font-size: 14px;">
+       Watch Here
+    </button>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="Modal11">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+    
+    <!-- Modal Header -->
+    <div class="modal-header">
+    <h4 class="modal-title">How serious is an energy outage for businesses in Turkey? </h4>
+    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+    
+    <!-- Modal body -->
+    <div class="modal-body">
+        <iframe width="1100px" height="500px" 
+            src="https://www.youtube.com/embed/xwecPvAaDao" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe> 
+        <p>Source <a href="https://www.youtube.com/c/dwnews">DW News</a></p>
+    </div>
+    
+    <!-- Modal footer -->
+    <div class="modal-footer">
+    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+    </div>
+</div>        
+</div>
+</div>
+</section>
+
+<section id="Australia">
+<h2>Australia</h2> 
+<p>Emissions Reduction Fund New Methodology Approval for Carbon Capture and Storage (CCS)
+    New Emissions Reduction Fund method approved for Carbon Capture and Storage (CCS) which will allow CCS projects to be granted with Australian Carbon Credit Units (ACCUs).
+</p>
+<p>Katherine-Darwin Interconnected System battery project and microgrids
+    Federal Budget allocated $30 million for the Northern Territory's Katherine-Darwin Interconnected System big battery project and microgrid rollout in communities.
+</p>
+<p>Opening up of 7,000km of land for coal and gas exploration-
+    Five parcels released for tender around coal and gas-rich rich Surat and Bowen Basins.
+</p>
+<p>Renewable energy training facility
+    The facility will provide skills training for 750 apprentices annually and assist approximately 26,000 licensed electricians with further training in solar and other renewable energy work. 
+</p>
+<p>Advancing Hydrogen Fund
+    This fund will provide finance to projects looking to grow Australia's renewable hydrogen sector, including developing new domestic supply chains, export infrastructure, and to help grow domestic demand for hydrogen.
+</p>
+
+<div id="features2">
+ 
+    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#Modal12" style="font-size: 14px;">
+       Watch Here
+    </button>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="Modal12">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+    
+    <!-- Modal Header -->
+    <div class="modal-header">
+    <h4 class="modal-title">Govt pumps $300m into hydrogen projects</h4>
+    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+    
+    <!-- Modal body -->
+    <div class="modal-body">
+        <iframe width="1100px" height="500px" 
+            src="https://www.youtube.com/embed/jK9zwbJMdCY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe> 
+        <p>Source <a href="https://www.youtube.com/c/SkyNewsAustralia">Sky News Australia</a></p>
+    </div>
+    
+    <!-- Modal footer -->
+    <div class="modal-footer">
+    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+    </div>
+</div>        
+</div>
+</div>
+</section>
+
+<section id="Mexico">
+<h2>Mexico</h2> 
+<p>Emissions Tax
+    The object of this tax is atmospheric emissions caused by certain substances that are generated by the use of goods or consumption of polluting products (e.g. gasoline, diesel, natural gas, gas LP) in the State and that affect its territory.
+</p>
+<p>Stimulus of public, private and social investment for the energy sector</p>
+<p>Increased Transmission Tariffs for Private Electricity Providers</p>
+
+<div id="features2">
+ 
+    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#Modal13" style="font-size: 14px;">
+       Watch Here
+    </button>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="Modal13">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+    
+    <!-- Modal Header -->
+    <div class="modal-header">
+    <h4 class="modal-title">Mexico electricity: President signs off on controversial energy bill</h4>
+    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+    
+    <!-- Modal body -->
+    <div class="modal-body">
+        <iframe width="1100px" height="500px" 
+            src="https://www.youtube.com/embed/3TicMzwNksw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe> 
+        <p>Source <a href="https://www.youtube.com/c/aljazeeraenglish">Al Jazeera</a></p>
+    </div>
+    
+    <!-- Modal footer -->
+    <div class="modal-footer">
+    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+    </div>
+</div>        
+</div>
+</div>
+</section>
+
+<section id="Canada">
+<h2>Canada</h2> 
+<p>Federal budget 2021: Support for the aerospace sector, Powering farms with clean energy, Clean electricity in remote and Indigenous communities, Tax measures for zero-emission technologies and clean energy technologies, Investments in clean tech,
+    Critical battery minerals investments, Federal procurement of clean electricity, Improving government capacity on low-carbon fuels, Improving government regulations for energy efficiency and mitigation policies.
+</p>
+<p>A Healthy Environment and a Healthy Economy (2020 Climate Plan):  Strategic Innovation Fund Net Zero Accelerator program, Carbon price increase, Sustainable Development Technology Canada top-up, Clean power projects for rural, remote and Indigenous communities,
+    Smart renewable energy and grid modernization projects, Incentives for Zero-Emission Vehicles program top-up, Low-carbon and Zero-emissions Fuels Fund, Green and inclusive community building retrofits and builds, Green and inclusive community building retrofits and builds.
+</p>
+<p>Greening Government Strategy
+    This reflects the publication of the updated Greening Government Strategy. The Government of Canada has committed to reduce its own operational greenhouse gas (GHG) emissions to net zero by 2050.
+</p>
+<p>Funding for green building technologies via Smart Sustainable Resilient Infrastructure Association</p>
+<p>Infrastructure Canada project funding for renewable green energy projects since January 2020</p>
+<p></p>
+
+<div id="features2">
+ 
+    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#Modal14" style="font-size: 14px;">
+       Watch Here
+    </button>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="Modal14">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+    
+    <!-- Modal Header -->
+    <div class="modal-header">
+    <h4 class="modal-title">Antigonish, N.S., aims to become Canada’s 1st net-zero emissions community</h4>
+    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+    
+    <!-- Modal body -->
+    <div class="modal-body">
+        <iframe width="1100px" height="500px" 
+            src="https://www.youtube.com/embed/03DYjLCUuZ0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe> 
+        <p>Source <a href="https://www.youtube.com/c/CBCTheNational">CBC News: The National</a></p>
+    </div>
+    
+    <!-- Modal footer -->
+    <div class="modal-footer">
+    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+    </div>
+</div>        
+</div>
+</div>
+</section>
+
+<section id="Argentina">
+<h2>Argentina</h2> 
+<p>Extraordinary Tax on the Wealthiest: 25% will go to gas exploration and extraction</p>
+
+<div id="features2">
+ 
+    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#Modal15" style="font-size: 14px;">
+       Watch Here
+    </button>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="Modal15">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+    
+    <!-- Modal Header -->
+    <div class="modal-header">
+    <h4 class="modal-title">Argentina introduces wealth tax for COVID-19 relief</h4>
+    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+    
+    <!-- Modal body -->
+    <div class="modal-body">
+        <iframe width="1100px" height="500px" 
+            src="https://www.youtube.com/embed/UjmdYhxrQSE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe> 
+        <p>Source <a href="https://www.youtube.com/c/aljazeeraenglish">Al Jazeera</a></p>
+    </div>
+    
+    <!-- Modal footer -->
+    <div class="modal-footer">
+    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+    </div>
+</div>        
+</div>
+</div>
+</section>
+
+<section id="Brazil">
+<h2>Brazil</h2> 
+<p>Ministry of Mines and Energy established guidelines for electricity auctions to thermoelectric entreprises using natural gas or national coal.
+    The focus is a thermoelectric enterprises using natural gas or national coal.
+</p>
+<p>The Ministry of Mines and Energy (MME) approved the National Energy Plan 2050
+    The plan focuses on presenting the scenarios for the evolution of energy consumption in order to anticipate possible innovations and events that may produce significant changes in society and in its relationship with energy.
+</p>
+
+<div id="features2">
+ 
+    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#Modal16" style="font-size: 14px;">
+       Watch Here
+    </button>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="Modal16">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+    
+    <!-- Modal Header -->
+    <div class="modal-header">
+    <h4 class="modal-title">Brazil will build a more sustainable and inclusive energy sector</h4>
+    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+    
+    <!-- Modal body -->
+    <div class="modal-body">
+        <iframe width="1100px" height="500px" 
+            src="https://www.youtube.com/embed/lPaf2p8Ivts" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe> 
+        <p>Source <a href="https://www.youtube.com/c/BancoMundialenAmericaLatina">Banco Mundial en America Latina y el Caribe</a></p>
+    </div>
+    
+    <!-- Modal footer -->
+    <div class="modal-footer">
+    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+    </div>
+</div>        
+</div>
+</div>
+</section>
+
+<section id="South-Africa">
+<h2>South-Africa</h2> 
+<p>IDC providing working capital to suppliers of primary energy
+    The Industrial Development Corporation has allocated R3 billion in funding for firms that produce essential goods to scale up their operations. This includes the energy sector and specifically, primary energy suppliers.
+</p>
+<p>Electricity Regulation Act: Licensing exemption and registration
+    At present, any small-scale embedded generators over 1MW are required to obtain a license to generate power (along with registering with the energy regulator NERSA). This proposed change means small-scale embedded generation projects up to 10MW will be exempt.
+</p>
+
+<div id="features2">
+ 
+    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#Modal17" style="font-size: 14px;">
+       Watch Here
+    </button>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="Modal17">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+    
+    <!-- Modal Header -->
+    <div class="modal-header">
+    <h4 class="modal-title">Deadline to comment on the Electricity Regulation Act Amendment Bill approaching</h4>
+    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+    
+    <!-- Modal body -->
+    <div class="modal-body">
+        <iframe width="1100px" height="500px" 
+            src="https://www.youtube.com/embed/96btAVwZcS4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe> 
+        <p>Source <a href="https://www.youtube.com/channel/UCQMML3hAsx-Mz9j9ZN0tThQ">Newzroom Afrika</a></p>
+    </div>
+    
+    <!-- Modal footer -->
+    <div class="modal-footer">
+    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+    </div>
+</div>        
+</div>
+</div>
+</section>
+
+<section id="United-Kingdom">
+<h2>United-Kingdom</h2> 
+<p>New programme in support of innovative technologies to produce hydrogen from sustainable biomass and waste.
+    On 12 January 2022, the UK Government has launched a new scheme for technologies producing hydrogen from biomass. Backed with ¬£5 million in government funding, the new Hydrogen BECCS Innovation Programme will support the development of technologies.
+</p>
+<p>Government streamlines energy efficiency labelling system in greener product standards push
+    Tougher rules introduced to make appliances such as fridges, washing machines and TVs cheaper to run and last longer, the government stated. 
+</p>
+<p>Energy Bills Rebate
+    On 3 February 2022, the UK Chancellor Rishi Sunak has announced £9.1 billion Energy Bills Rebate to support families with rising global energy prices.
+The Energy Bills Rebate will provide around 28 million households with an upfront discount on their bills.
+</p>
+<p>Government confirms Future Homes Standard will apply to any new homes built from 2025
+    Responding to a consultation on the Future Homes Standard, the government has set out plans to radically improve the energy performance of new homes, with all homes to be highly energy efficient, with low carbon heating and be zero carbon ready by 2025.
+</p>
+<p>UK announcement of ending public support for overseas fossil fuel projects
+    The UK Prime Minister has announced on the 12th December that the UK will end direct government support for the fossil fuel energy sector overseas, as he opens the Climate Ambition Summit.
+</p>
+<p>Government announces new ambitious target to reduce emissions by 2030
+    The Prime Minister announced a new ambitious target to reduce the UK's emissions by at least 68% by 2030, compared to 1990 levels. The announcement comes ahead of the UK co-hosting the Climate Ambition Summit on Saturday 12 December.
+</p>
+<p>Support to develop large and smaller-scale nuclear plants (part of the PM's 10-point plan)
+    £525 million has been committed by the UK Government to help develop large and smaller-scale nuclear plants, and research and develop new advanced modular reactors. This is expected to support up to 10,000 jobs. 
+</p>
+<p>Working with industry to generate 5GW of low carbon hydrogen production capacity by 2030 for industry, transport, power and homes, and aiming to develop the first town heated entirely by hydrogen by the end of the decade (part of the PM's 10-point plan.
+    Up to ¬£500 million will be devoted to developing hydrogen production, including for trialling homes using hydrogen for heating and cooking, starting with a Hydrogen Neighbourhood in 2023, moving to a Hydrogen Village by 2025.
+</p>
+
+<div id="features2">
+ 
+    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#Modal18" style="font-size: 14px;">
+       Watch Here
+    </button>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="Modal18">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+    
+    <!-- Modal Header -->
+    <div class="modal-header">
+    <h4 class="modal-title">UK's 'Green Industrial Revolution' unveiled by PM Johnson in 10-point plan</h4>
+    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+    
+    <!-- Modal body -->
+    <div class="modal-body">
+        <iframe width="1100px" height="500px" 
+            src="https://www.youtube.com/embed/saTCdsJ4vuE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe> 
+        <p>Source <a href="https://www.youtube.com/c/CGTNEurope">CGTN Europe</a></p>
+    </div>
+    
+    <!-- Modal footer -->
+    <div class="modal-footer">
+    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+    </div>
+</div>        
+</div>
+</div>
+</section>
+
+<section id="USA">
+<h2>USA</h2> 
+<p>Department of Energy intends to launch competitive process to secure 122 million USD for coal products innovation centers that will manufacture carbon-based products from coal.</p>
+<p>Department of Energy support for Natural Gas Pipeline Retrofitting Projects.</p>
+<p>Extension of LNG export term to 50 years.</p>
+<p>Paycheck Protection Program support to renewable energy clean industries</p>
+
+<div id="features2">
+ 
+    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#Modal19" style="font-size: 14px;">
+       Watch Here
+    </button>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="Modal19">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+    
+    <!-- Modal Header -->
+    <div class="modal-header">
+    <h4 class="modal-title">US races to meet climate goals under Paris Agreement</h4>
+    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+    
+    <!-- Modal body -->
+    <div class="modal-body">
+        <iframe width="1100px" height="500px" 
+            src="https://www.youtube.com/embed/-WmbPHBs1W8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe> 
+        <p>Source <a href="https://www.youtube.com/c/aljazeeraenglish">Al Jazeera</a></p>
+    </div>
+    
+    <!-- Modal footer -->
+    <div class="modal-footer">
+    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+    </div>
+</div>        
+</div>
+</div>
+</section>
+
+
+</div>
+
+<script>
+ 
+mapboxgl.accessToken = 'pk.eyJ1IjoiZWxpa2Etc2luaGEiLCJhIjoiY2t5a2x0ZmU2MjJ2MzJucXBqa3ludmFnciJ9.kHtDaktoXqMCHmEnLHAJCw';
+
+const map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/elika-sinha/ckze4r1qk005t14vsivmzzib8/draft',
+center: [78.9629, 20.5937],
+zoom: 0 
+});
+ 
+map.addControl(new mapboxgl.NavigationControl());
+
+map.flyTo({
+    center:[78.9629, 20.5937],
+    zoom: 3.5,
+    speed: 0.5,
+    pitch: 0,
+});
+
+const chapters = {
+'India': { 
+center: [78.9629, 20.5937],
+zoom: 3.5
+},
+'China': { 
+center: [104.1954, 35.8617],
+zoom: 3.5
+}, 
+'Japan': { 
+center: [138.2529, 36.2048],
+zoom: 4.5,
+speed: 0.6
+},
+'Korea': { 
+center: [127.7669, 35.9078],
+zoom: 4.5
+},
+'Indonesia': { 
+center: [113.9213, 0.7893],
+zoom: 5.3, 
+speed: 0.5
+},
+'Saudi-Arabia': { 
+center: [45.0792, 23.8859],
+zoom: 4.5
+},
+'Russia': { 
+center: [105.3188, 61.5240],
+zoom: 2.5 
+},
+'Germany': { 
+center: [10.4515, 51.1657],
+zoom: 4.5
+},
+'France': { 
+center: [2.2137, 46.2276],
+zoom: 4.5,
+},
+'Italy': { 
+center: [12.5674, 41.8719],
+zoom: 4.5 
+},
+'Turkey': { 
+center: [35.2433, 38.9637],
+zoom: 4.5
+},
+'Australia': { 
+center: [133.7751, -25.2744],
+zoom: 3.5
+},
+'Mexico': { 
+center: [-102.5528, 23.6345],
+zoom: 3.5
+},
+'Canada': { 
+center: [-106.3468, 56.1304],
+zoom: 3
+},
+'Argentina': { 
+center: [-63.6167, -38.4161],
+zoom: 3.5
+},
+'Brazil': { 
+center: [-51.9253, -14.2350],
+zoom: 3.5
+},
+'South-Africa': { 
+center: [22.9375, -30.5595],
+zoom: 4.5
+},
+'United-Kingdom': { 
+center: [3.4360, 55.3781],
+zoom: 4.5
+},
+'USA': { 
+center: [-95.7129, 37.0902],
+zoom: 3.5
+}
+};
+ 
+let activeChapterName = 'India';
+function setActiveChapter(chapterName) {
+if (chapterName === activeChapterName) return;
+ 
+map.flyTo(chapters[chapterName]);
+ 
+document.getElementById(chapterName).classList.add('active');
+document.getElementById(activeChapterName).classList.remove('active');
+ 
+activeChapterName = chapterName;
+}
+ 
+function isElementOnScreen(id) {
+const element = document.getElementById(id);
+const bounds = element.getBoundingClientRect();
+return bounds.top < window.innerHeight && bounds.bottom > 0;
+}
+ 
+// On every scroll event, check which element is on screen
+window.onscroll = () => {
+for (const chapterName in chapters) {
+if (isElementOnScreen(chapterName)) {
+setActiveChapter(chapterName);
+break;
+}
+}
+};  
+ 
+</script>
+
+ 
+</body>
+</html>

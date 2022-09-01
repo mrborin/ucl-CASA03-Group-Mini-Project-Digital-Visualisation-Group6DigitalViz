@@ -1,0 +1,117 @@
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Policy Tracker</title>
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"> 
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css'>
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+
+  <script src="echarts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.3.1-rc.1/echarts.min.js"></script>
+  <script src="http://d3js.org/d3.v4.min.js" charset="utf-8"></script> 
+
+<style>
+      body { 
+      margin:0px; 
+      padding:0;
+      font-family: 'Lato' !important; 
+      color: rgb(56, 54, 54);
+      }  
+      .text {
+      margin: 0px; 
+      font-size: 20px;
+      position: relative;  
+      float: right; 
+      text-align: justify; 
+      padding-right: 50px;
+      padding-left: 900px;
+      padding-bottom: 0px;
+      color: rgb(49, 48, 48); 
+      }    
+      .chart2{
+      margin: 100px;
+      position: relative; 
+      padding-top: 0px;
+      padding-right: 200px;
+      padding-left: 25px; 
+      width: 800px;
+      height: 600px;
+      font-family: Gill Sans, 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+      } 
+      .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+      flex-direction: column;
+      }  
+
+</style>
+
+</head>
+<body>
+   
+ 
+  <div class="text">
+    <h3 style="font-size: 30px">Policy Investment by Energy Type</h3>
+    <p style="font-size: 24px">in Billion USD</p>
+    <p style="font-size: 16px">Despite various investments towards sustainable forms of energy- coal, oil and gas also had major policy investment in 2020.
+      Investment in 2021 is towards hydro (water) as a power source, where other energy production investments have been decreased. 
+      These investments contradict the sustainble rhetoric.
+    </p>
+  </div>
+
+  <div id="main2" class="chart2">
+         
+        <script> 
+            
+
+        var chartDom2 = document.getElementById('main2');
+        var myChart2 = echarts.init(chartDom2);
+        var option2;
+
+        option2 = {
+        title: {
+            text: ''
+        },
+        legend: {
+            data: ['2020', '2021', '2022']
+        },
+        radar: {
+            // shape: 'circle',
+            indicator: [
+            { name: 'Hydrogen', max: 125000 },
+            { name: 'Hydro', max: 125000 },
+            { name: 'Nuclear', max: 125000 },
+            { name: 'Solar', max: 125000 },
+            { name: 'Wind', max: 125000 },
+            { name: 'Coal', max: 125000 },
+            { name: 'Oil and Gas', max: 125000 }
+            ]
+        },
+        series: [
+            {
+            name: 'Investment by Year',
+            type: 'radar',
+            color: ['dodgerblue', 'violet'],
+            data: [
+                {
+                value: [106261.2, 95, 2701.7, 110304.20, 116034.70, 116034.7, 114297],
+                name: '2020',
+                },
+                {
+                value: [16280, 106146.30, 1, 7501, 8414.8, 13006.9, 15630.4],
+                name: '2021'
+                }
+            ]
+            }
+        ]
+        };
+
+        option2 && myChart2.setOption(option2);
+    
+        </script>
+
+    </div>

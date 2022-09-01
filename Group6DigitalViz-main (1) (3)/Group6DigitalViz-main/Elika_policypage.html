@@ -1,0 +1,640 @@
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Policy Tracker</title>
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"> 
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css'>
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+
+  <script src="echarts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.3.1-rc.1/echarts.min.js"></script>
+  <script src="http://d3js.org/d3.v4.min.js" charset="utf-8"></script> 
+
+<style>
+      body { 
+      margin:0px; 
+      padding:0;
+      font-family: 'Lato' !important; 
+      color: rgb(56, 54, 54);
+      } 
+      .header{
+      font-size:35px; 
+      text-align: center; 
+      padding-top: 200px;
+      padding-right: 200px; 
+      padding-left: 200px;
+      padding-bottom: 50px; 
+      }
+      .text {
+      margin: 100px; 
+      font-size: 20px;
+      position: relative;  
+      float: right; 
+      text-align: justify; 
+      padding-right: 25px;
+      padding-left: 850px;
+      padding-bottom: 0px;
+      color: rgb(49, 48, 48); 
+      }    
+      .chart1{
+      margin: 100px;
+      position: relative; 
+      padding-top: 0px;
+      padding-right: 200px;
+      padding-left: 25px;
+      width: 800px;
+      height: 600px;
+      font-family: 'Lato' !important; 
+      } 
+      .chart2{
+      margin: 100px;
+      position: relative; 
+      padding-top: 0px;
+      padding-right: 200px;
+      padding-left: 25px; 
+      width: 800px;
+      height: 600px;
+      font-family: 'Lato' !important; 
+      } 
+      .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+      flex-direction: column;
+      } 
+      .timeline {
+      width: 100%;
+      background-color: #fff; 
+      }
+      .timeline .swiper-container {
+      height: 100%;
+      width: 100%;
+      position: relative;
+      }
+      .timeline .swiper-wrapper {
+      transition: 2s cubic-bezier(0.68, -0.4, 0.27, 1.34) 0.2s;
+      }
+      .timeline .swiper-slide {
+      position: relative;
+      color: #fff;
+      overflow: hidden;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      }
+      .timeline .swiper-slide::after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      right: 100%;
+      bottom: 0%;
+      width: 100%;
+      height: 100%;
+      background-color: #34495E;  
+      }
+      .timeline .swiper-slide-content {
+      position: absolute;
+      text-align: center;
+      width: 100%;
+      max-width: 500px;
+      right: 100%;
+      top: 100%; 
+      transform: translate(50%, 0);
+      font-size: 12px;
+      z-index: 2;
+      }
+      .timeline .swiper-slide .timeline-year {
+      display: block;
+      font-size: 20px; 
+      transform: translate3d(20px, 0, 0);
+      color: #34495E;
+      font-weight: 300;
+      padding-right: 50px;
+      opacity: 0;
+      transition: .2s ease .4s; 
+      }
+      .timeline .swiper-slide .timeline-title {
+      font-weight: 700;
+      font-size: 40px;
+      margin: 0 0 0px; 
+      opacity: 0; 
+      padding-right: 50px;
+      transform: translate3d(20px, 0, 0);
+      transition: .2s ease .5s;
+      }
+      .timeline .swiper-slide .timeline-text {
+      line-height: 1.5;
+      opacity: 0; 
+      transform: translate3d(20px, 0, 0);
+      transition: .2s ease .6s;
+      padding-right: 50px;
+      }
+      .timeline .swiper-slide-active .timeline-year {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      transition: .4s ease 1.6s;
+      }
+      .timeline .swiper-slide-active .timeline-title {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      transition: .4s ease 1.7s;
+      }
+      .timeline .swiper-slide-active .timeline-text {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      transition: .4s ease 1.8s;
+      }
+      .timeline .swiper-pagination {
+      right: 15% !important; 
+      height: 100%;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      color: #34495E;
+      font-weight: 300;
+      font-size: 25px;
+      z-index: 1;
+      }
+      .timeline .swiper-pagination::before {
+      content: "";
+      position: absolute;
+      left: -30px;
+      top: 0;
+      height: 100%;
+      width: 1px;
+      background-color: #34495E;
+      }
+      .timeline .swiper-pagination-bullet {
+      width: auto;
+      height: auto;
+      text-align: center;
+      opacity: 1;
+      background: transparent;
+      color: #34495E;
+      margin: 15px 0 !important;
+      position: relative;
+      }
+      .timeline .swiper-pagination-bullet::before {
+      content: "";
+      position: absolute;
+      top: 8px;
+      left: -35px;
+      width: 10px;
+      height: 10px;
+      border-radius: 100%;
+      background-color: #34495E;
+      transform: scale(0);
+      transition: .2s;
+      }
+      .timeline .swiper-pagination-bullet-active {
+      color: #34495E;
+      }
+      .timeline .swiper-pagination-bullet-active::before {
+      transform: scale(1);
+      }
+      .timeline .swiper-button-next,
+      .timeline .swiper-button-prev {
+      background-size: 20px 20px;
+      top: 15%;
+      width: 20px;
+      height: 20px;
+      margin-top: 0;
+      z-index: 2;
+      transition: .2s;
+      }
+      .timeline .swiper-button-prev {
+      left: 8%;
+      }
+      .timeline .swiper-button-prev:hover {
+      transform: translateX(-3px);
+      }
+      .timeline .swiper-button-next {
+      right: 8%;
+      }
+      .timeline .swiper-button-next:hover {
+      transform: translateX(3px);
+      }
+      .timeline .swiper-slide-content {
+      right: 30%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      font-size: 16px;
+      text-align: right;
+      }
+      .timeline .swiper-slide .timeline-year {
+      margin-bottom: 0;
+      font-size: 30px;
+      }
+      .timeline .swiper-slide .timeline-title {
+      font-size: 40px;
+      margin: 0;
+      }
+      .timeline .swiper-pagination {
+      display: flex;
+      color:#34495E;
+      }
+      .timeline .swiper-button-prev {
+      top: 15%;
+      left: auto;
+      right: 18%;
+      transform: rotate(90deg) translate(0, 10px); 
+      color:black;
+      }
+      .timeline .swiper-button-prev:hover {
+      transform: rotate(90deg) translate(-3px, 10px); 
+      }
+      .timeline .swiper-button-next {
+      top: auto;
+      bottom: 15%;
+      right: 18%;
+      transform: rotate(90deg) translate(0, 10px);
+      color:black;
+      }
+      .timeline .swiper-button-next:hover {
+      transform: rotate(90deg) translate(3px, 10px); 
+      }
+      .timeline .swiper-slide-content {
+      right: 25%; 
+      }
+
+</style>
+
+</head>
+<body>
+  
+  <div class="header">
+  <h1>Energy and Policy</h1> 
+  <p style="font-size:24px;">This section looks at the trends of policy decisions taken by governments across the world</p>
+  <p style="font-size: 18px;">The information is sourced from <a href="https://www.energypolicytracker.org">The Energy Policy Tracker</a> that compiles publicly 
+    available information on public money commitments for diverse energy types as well as other policies that support energy production and consumption.
+  </p>
+  <p style="font-size: 14px;padding-bottom: 130px;">To note: the tracker only displays initial investment to new policy.</p>
+  </div>
+
+  <div class="header">
+    <h1>Charting the World's rhetoric towards Energy</h1> 
+    <p style="font-size:24px;">This section looks at the trends of policy decisions taken by G20 governments</p>
+    <p style="font-size: 18px;">Capturing essential policies with news reels to follow</p> 
+  </div>
+
+  <div id="map">
+    <iframe src="Elika_policytimeline.html" width="100%" height="95%" frameBorder="0"></iframe>
+  </div>
+
+  <div class="text">
+    <h3 style="font-size: 30px">Policy Investment by Sector</h3>
+    <p style="font-size: 24px"> in Billion USD</p>
+    <p style="font-size: 14px">Policies are classified by the policy tracker under 'clean conditional' if they state support away from fossil fuels, but are not necessarily specific 
+    regarding the implementation of appropriate sustainable counterparts. 'Clean Unconditional' refers to potentially clean, sustainable policies that are in support of 
+    production or consumption of energy in a low-carbon process having negligible effect on the environment. 'Fossil Condition' are policies that support the production and consumption of 
+    fossil fuels (oil, gas, coal, or fossil fuel based electricity). 'Fossil Unconditional' are policies that support production and consumption of fossil fuels without any 
+    sustainability targets. 'Other Energy' are policies outside the above but falling under an umbrella category (such as nuclear power, uranium mining).</p>
+    <p style="font-size: 16px">The graph displays that investments towards energy has been more in 2020 than the two consecutive years. 
+      Although, 'clean conditional' (individually) shows an upward trend in 2022 and 'other energy' has garnered much investment in 2021; the overall
+      trend is downwards.
+    </p>
+  </div>
+
+  <div id="main1" class="chart1">
+        
+    <script> 
+    
+    var chartDom1 = document.getElementById('main1');
+    var myChart1 = echarts.init(chartDom1);
+    var option1;
+
+        option1 = {
+        title: {
+            text: ''
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+            type: 'cross',
+            label: {
+                backgroundColor: ''
+            }
+            }
+        },
+        legend: {
+            data: ['clean conditional', 'clean unconditional', 'fossil conditional', 'fossil unconditional', 'other energy']
+        },
+        toolbox: {
+            feature: {
+            
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: [
+            {
+            type: 'category',
+            boundaryGap: false,
+            data: ['2020', '2021', '2022']
+            }
+        ],
+        yAxis: [
+            { 
+            type: 'value'
+            }
+        ],
+        series: [
+            {
+            name: 'clean conditional',
+            type: 'line',
+            stack: 'Total',
+            smooth: true,
+            lineStyle: {
+                width: 0
+            },
+            showSymbol: false,
+            color: 'mediumaquamarine',
+            areaStyle: {},
+            emphasis: {
+                focus: 'series'
+            }, 
+            data: [8768.6,
+                    480.8,
+                    0]
+            },
+            {
+            name: 'clean unconditional',
+            type: 'line',
+            stack: 'Total',
+            smooth: true,
+            lineStyle: {
+                width: 0
+            },
+            showSymbol: false,
+            color: 'mediumslateblue',
+            areaStyle: {},
+            emphasis: {
+                focus: 'series'
+            }, 
+            data: [825.5,
+                    48.3,
+                    183]
+            },
+            {
+            name: 'fossil conditional',
+            type: 'line',
+            stack: 'Total',
+            smooth: true,
+            lineStyle: {
+                width: 0
+            },
+            showSymbol: false,
+            color: 'orange',
+            areaStyle: {},
+            emphasis: {
+                focus: 'series'
+            }, 
+            data: [505,
+                    31.2,
+                    0]
+            },
+            {
+            name: 'fossil unconditional',
+            type: 'line',
+            stack: 'Total',
+            smooth: true,
+            lineStyle: {
+                width: 0
+            },
+            showSymbol: false,
+            color: 'salmon',
+            areaStyle: {},
+            emphasis: {
+                focus: 'series'
+            }, 
+            data: [103180,
+                    2139.6,
+                    0,]
+            },
+            {
+            name: 'other energy',
+            type: 'line',
+            stack: 'Total',
+            smooth: true,
+            lineStyle: {
+                width: 0
+            },
+            showSymbol: false,
+            color: 'lightskyblue',
+            areaStyle: {},
+            emphasis: {
+                focus: 'series'
+            }, 
+            data: [2265.2,
+                    3100.8,
+                    9.1]
+            }
+        ]
+        };
+
+        option1 && myChart1.setOption(option1);
+
+    </script>
+  </div>
+ 
+  <div class="text">
+    <h3 style="font-size: 30px">Policy Investment by Energy Type</h3>
+    <p style="font-size: 24px">in Billion USD</p>
+    <p style="font-size: 16px">Despite various investments towards sustainable forms of energy- coal, oil and gas also had major policy investment in 2020.
+      Investment in 2021 is towards hydro (water) as a power source, where other energy production investments have been decreased. 
+      These investments contradict the sustainble rhetoric.
+    </p>
+  </div>
+
+  <div id="main2" class="chart2">
+         
+        <script> 
+            
+
+        var chartDom2 = document.getElementById('main2');
+        var myChart2 = echarts.init(chartDom2);
+        var option2;
+
+        option2 = {
+        title: {
+            text: ''
+        },
+        legend: {
+            data: ['2020', '2021', '2022']
+        },
+        radar: {
+            // shape: 'circle',
+            indicator: [
+            { name: 'Hydrogen', max: 125000 },
+            { name: 'Hydro', max: 125000 },
+            { name: 'Nuclear', max: 125000 },
+            { name: 'Solar', max: 125000 },
+            { name: 'Wind', max: 125000 },
+            { name: 'Coal', max: 125000 },
+            { name: 'Oil and Gas', max: 125000 }
+            ]
+        },
+        series: [
+            {
+            name: 'Investment by Year',
+            type: 'radar',
+            color: ['dodgerblue', 'violet'],
+            data: [
+                {
+                value: [106261.2, 95, 2701.7, 110304.20, 116034.70, 116034.7, 114297],
+                name: '2020',
+                },
+                {
+                value: [16280, 106146.30, 1, 7501, 8414.8, 13006.9, 15630.4],
+                name: '2021'
+                }
+            ]
+            }
+        ]
+        };
+
+        option2 && myChart2.setOption(option2);
+    
+        </script>
+
+    </div>
+
+    <div class="header">
+      <h3 style="font-size: 30px; padding-top: 10px">Key Policies</h3>
+      <p style="font-size: 24px">in Germany, China, India, UK, USA</p>
+      <p style="font-size: 16px; padding-bottom: 350px;">This policy overview captures a number of policies in the countries (Germany, China, India, UK and the US) as they push towards an equitable/ non-equitable energy outlook, 
+        committing to important legislations that attempt to adjust the past narrative
+      </p>
+    </div>
+    
+  <div class="timeline">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        
+        <div class="swiper-slide" style="background-color: lavender;" data-year="International">
+          <div class="swiper-slide-content" style="color:#34495E;"><span class="timeline-year">2020-22</span>
+            <p class="timeline-text" style="color:#34495E;">Since the beginning of the COVID19 pandemic in early 2020, governments in G20 countries have committed at least USD 900.56 billion to supporting 
+              different energy types through new or amended policies, according to official government sources and other publicly available information.</p>
+            <p class="timeline-text" style="color:#34495E;">BP’s Statistical Review of World Energy 2021 reveals that the COVID-19 pandemic had a dramatic impact on energy markets, with both primary energy and carbon emissions falling at their fastest rates since the Second World War. Nevertheless, renewable energy continued to grow, with solar power recording its largest ever increase</p>
+          </div>
+        </div>
+        <div class="swiper-slide" style="background-color: coral;" data-year="Germany">
+          <div class="swiper-slide-content"><span class="timeline-year">2020</span>
+            <h4 class="timeline-title">Climate Change Strategy</h4>
+            <p class="timeline-text">Germany’s national climate change strategy is defined in the Climate Action Plan 2050, which sets out a longer-term pathway 
+              for sector-specific emissions reductions, as part of the Energiewende. Compared with the base year of 1990, the key goals are to achieve at least a 
+              40% cut in greenhouse gas (GHG) emissions by 2020, 55% by 2030, 70% by 2040 and 80-95% by 2050, at which point the country expects to be mostly 
+              GHG-neutral. These targets are complemented with short- and medium-term targets for energy consumption and energy efficiency, and renewable energy 
+              supply.</p>
+            <span class="timeline-year">2021</span>
+            <h4 class="timeline-title">Energiewende</h4>
+            <p class="timeline-text">The “Energiewende" continues to be the defining feature of Germany’s energy policy landscape. In place for nearly a decade, 
+              the Energiewende is a major plan for transforming the country’s energy system to make it more efficient and supplied mainly by renewable sources. 
+              The Energiewende is clearly visible in electricity generation, where it has increased the share of renewables.</p> 
+              <p class="timeline-text" style="font-size: 10px;">Source <a href="https://www.iea.org">IEA</a></p>  
+          </div>
+        </div>
+        <div class="swiper-slide" style="background-color: orchid;" data-year="China">
+          <div class="swiper-slide-content"><span class="timeline-year">2020-present</span>
+            <h4 class="timeline-title">Energy Plans and Strategy</h4>
+            <p class="timeline-text">In September 2020, President Xi Jinping announced that China will “aim to have CO2 emissions peak before 2030 and achieve 
+              carbon neutrality before 2060”. Announced 40 years after the country began its remarkable journey towards economic modernisation, this new vision 
+              for China’s future comes amid growing convergence among the world’s major economies on the need to reach net zero emissions globally by mid-century. 
+              But no pledge is as significant as China’s: the country is the world’s largest energy consumer and carbon emitter, accounting for one-third of global 
+              CO2 emissions. The pace of China’s emissions reductions over the coming decades will be important in determining whether the world succeeds in 
+              preventing global warming from exceeding 1.5 °C.</p>
+              <p class="timeline-text" style="font-size: 10px;">Source <a href="https://www.iea.org">IEA</a></p>
+          </div>
+        </div>
+        <div class="swiper-slide" style="background-color: orange;" data-year="India">
+          <div class="swiper-slide-content"><span class="timeline-year">2020-present</span>
+            <h4 class="timeline-title">Energy for All</h4>
+            <p class="timeline-text">Ensuring Indian citizens have access to electricity and clean cooking has been at the top of the country’s political agenda. 
+              Around 700 million people in India gained access to electricity between 2000 and 2018, reflecting strong and effective policy implementation.
+              The government of India has also made significant progress in reducing the use of traditional biomass in cooking, the chief cause of indoor air 
+              pollution that particularly affects women and children. The government has encouraged clean cooking with liquefied petroleum gas. India continues 
+              to promote cleaner cooking and off-grid electrification solutions, including a shift toward using solar photovoltaics (PV) for cooking and charging 
+              batteries.
+            </p> 
+            <p class="timeline-text" style="font-size: 10px;">Source <a href="https://www.iea.org">IEA</a></p>
+          </div>
+        </div>
+        <div class="swiper-slide" style="background-color: steelblue;" data-year="UK">
+          <div class="swiper-slide-content"><span class="timeline-year">2020-present</span>
+            <h4 class="timeline-title">Decarbonisation and Energy</h4>
+            <p class="timeline-text">The United Kingdom is preparing for a deep decarbonisation of its energy system. The country has decided to halve its greenhouse 
+              gas emissions from 1990 to 2027 and to cut them by a total of 80% by 2050. For this to happen, significant private-sector investment in new energy 
+              infrastructure is needed. As it seeks concrete solutions to the low-carbon investment challenge, the United Kingdom is leading by example. The United 
+              Kingdom’s proposed Electricity Market Reform is a pioneering effort that will be closely observed by other countries. Ideally, this complex and 
+              ambitious reform would in the long run lead to a more liberalised marketplace in which low-carbon power generation technologies compete to deliver 
+              innovative and least-cost outcomes. Security of supply remains a key focus of energy policy. Fossil fuel production in the United Kingdom has peaked, 
+              and a fifth of the country’s ageing power generating capacity will have to be closed this decade.</p>
+              <p class="timeline-text" style="font-size: 10px;">Source <a href="https://www.iea.org">IEA</a></p>
+          </div>
+        </div>
+        <div class="swiper-slide" style="background-color: darkcyan;" data-year="US">
+          <div class="swiper-slide-content"><span class="timeline-year">2019</span>
+            <h4 class="timeline-title">Energy Switch</h4>
+            <p class="timeline-text"> The United States has achieved notable reductions in CO2 emissions over the past decade, led by its power sector. Low-cost 
+              shale gas combined with falling costs and policy support for renewables have shifted dependence away from coal-fired generation. Still, closures of 
+              coal and nuclear plants are expected to continue, requiring policy and regulatory responses to ensure a steady transition. Energy security remains a 
+              priority for the United States, which continues to demonstrate a strong focus on reliability and resilience.</p>
+            <p class="timeline-text" style="font-size: 10px;">Source <a href="https://www.iea.org">IEA</a></p>
+          </div>
+        </div>
+       
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</div>
+ 
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.min.js'></script>
+<script  src="function.js"></script>
+ 
+<script>
+    var timelineSwiper = new Swiper ('.timeline .swiper-container', {
+  direction: 'vertical',
+  loop: false,
+  speed: 1600,
+  pagination: '.swiper-pagination',
+  paginationBulletRender: function (swiper, index, className) {
+    var year = document.querySelectorAll('.swiper-slide')[index].getAttribute('data-year');
+    return '<span class="' + className + '">' + year + '</span>';
+  },
+  paginationClickable: true,
+  nextButton: '.swiper-button-next',
+  prevButton: '.swiper-button-prev',
+  breakpoints: {
+    768: {
+      direction: 'horizontal',
+    }
+  }
+});
+</script>
+
+<div class="header">
+  <h3 style="font-size: 30px; padding-top: 250px;">End Note</h3> 
+  <p style="font-size: 16px;">Key policy decisions in countries like Germany and UK support green energy transitions- but the cost ultimately rises for the end consumer and not producer. 
+    US on the other hand has seldom recorded sustainable energy related policies in the last few years. The policies in countries like China, and India show 
+    hesitant green commitments- especially after the current political rift. The low carbon footprint transitions energy towards electricity and subsequently 
+    questions where it is coming from? What is its source and how is it distributed? Paramount being, who is going to pay for it?
+  </p>
+  <p style="font-size: 16px; padding-bottom: 250px;">Despite the perplexing investment trends and policy engagements- the investments voiced in early 2022
+    after the pandemic as well as during the Ukraine war pushes towards production and consumption through sustainable 'self-reliant' sources of energy which 
+    readjusts this situation for trends to emerge in the future.
+  </p>
+</div>
+
+</body>
+</html>

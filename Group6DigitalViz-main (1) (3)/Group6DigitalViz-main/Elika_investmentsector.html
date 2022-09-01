@@ -1,0 +1,216 @@
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Policy Tracker</title>
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"> 
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css'>
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+
+  <script src="echarts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.3.1-rc.1/echarts.min.js"></script>
+  <script src="http://d3js.org/d3.v4.min.js" charset="utf-8"></script> 
+
+<style>
+      body { 
+      margin:0px; 
+      padding:0;
+      font-family: 'Lato' !important;  
+      color: rgb(56, 54, 54);
+      } 
+      .header{
+      font-size:35px; 
+      text-align: center; 
+      padding-top: 200px;
+      padding-right: 200px; 
+      padding-left: 200px;
+      padding-bottom: 50px; 
+      }
+      .text {
+      margin: 0px; 
+      font-size: 20px;
+      position: relative;  
+      float: right; 
+      text-align: left; 
+      padding-right: 50px; 
+      padding-left: 900px;
+      padding-bottom: 0px;
+      color: rgb(49, 48, 48); 
+      }    
+      .chart1{
+      margin: 100px;
+      position: relative; 
+      padding-top: 0px;
+      padding-right: 200px;
+      padding-left: 25px;
+      width: 800px;
+      height: 600px;
+      font-family: 'Lato';
+      }  
+</style>
+
+</head>
+<body>
+
+  <div class="text">
+    <h3 style="font-size: 30px; padding-top: 0%;">Policy Investment by Sector</h3>
+    <p style="font-size: 24px"> in Billion USD</p>
+    <p style="font-size: 14px">Policies are classified by the policy tracker under 'clean conditional' if they state support away from fossil fuels, but are not necessarily specific 
+    regarding the implementation of appropriate sustainable counterparts. 'Clean Unconditional' refers to potentially clean, sustainable policies that are in support of 
+    production or consumption of energy in a low-carbon process having negligible effect on the environment. 'Fossil Condition' are policies that support the production and consumption of 
+    fossil fuels (oil, gas, coal, or fossil fuel based electricity). 'Fossil Unconditional' are policies that support production and consumption of fossil fuels without any 
+    sustainability targets. 'Other Energy' are policies outside the above but falling under an umbrella category (such as nuclear power, uranium mining).</p>
+    <p style="font-size: 16px">The graph displays that investments towards energy has been more in 2020 than the two consecutive years. 
+      Although, 'clean conditional' (individually) shows an upward trend in 2022 and 'other energy' has garnered much investment in 2021; the overall
+      trend is downwards.
+    </p>
+  </div>
+
+  <div id="main1" class="chart1">
+        
+    <script> 
+    
+    var chartDom1 = document.getElementById('main1');
+    var myChart1 = echarts.init(chartDom1);
+    var option1;
+
+        option1 = {
+        title: {
+            text: ''
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+            type: 'cross',
+            label: {
+                backgroundColor: ''
+            }
+            }
+        },
+        legend: {
+            data: ['clean conditional', 'clean unconditional', 'fossil conditional', 'fossil unconditional', 'other energy']
+        },
+        toolbox: {
+            feature: {
+            
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: [
+            {
+            type: 'category',
+            boundaryGap: false,
+            data: ['2020', '2021', '2022']
+            }
+        ],
+        yAxis: [
+            { 
+            type: 'value'
+            }
+        ],
+        series: [
+            {
+            name: 'clean conditional',
+            type: 'line',
+            stack: 'Total',
+            smooth: true,
+            lineStyle: {
+                width: 0
+            },
+            showSymbol: false,
+            color: 'mediumaquamarine',
+            areaStyle: {},
+            emphasis: {
+                focus: 'series'
+            }, 
+            data: [8768.6,
+                    480.8,
+                    0]
+            },
+            {
+            name: 'clean unconditional',
+            type: 'line',
+            stack: 'Total',
+            smooth: true,
+            lineStyle: {
+                width: 0
+            },
+            showSymbol: false,
+            color: 'mediumslateblue',
+            areaStyle: {},
+            emphasis: {
+                focus: 'series'
+            }, 
+            data: [825.5,
+                    48.3,
+                    183]
+            },
+            {
+            name: 'fossil conditional',
+            type: 'line',
+            stack: 'Total',
+            smooth: true,
+            lineStyle: {
+                width: 0
+            },
+            showSymbol: false,
+            color: 'orange',
+            areaStyle: {},
+            emphasis: {
+                focus: 'series'
+            }, 
+            data: [505,
+                    31.2,
+                    0]
+            },
+            {
+            name: 'fossil unconditional',
+            type: 'line',
+            stack: 'Total',
+            smooth: true,
+            lineStyle: {
+                width: 0
+            },
+            showSymbol: false,
+            color: 'salmon',
+            areaStyle: {},
+            emphasis: {
+                focus: 'series'
+            }, 
+            data: [103180,
+                    2139.6,
+                    0,]
+            },
+            {
+            name: 'other energy',
+            type: 'line',
+            stack: 'Total',
+            smooth: true,
+            lineStyle: {
+                width: 0
+            },
+            showSymbol: false,
+            color: 'lightskyblue',
+            areaStyle: {},
+            emphasis: {
+                focus: 'series'
+            }, 
+            data: [2265.2,
+                    3100.8,
+                    9.1]
+            }
+        ]
+        };
+
+        option1 && myChart1.setOption(option1);
+
+    </script>
+  </div> 
+
+    </div>
